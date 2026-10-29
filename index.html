@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asteroid Evolution</title>
+  <base href="/astroid-evolution-web/" />
+  <script src="coi-serviceworker.js"></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="ui/ui.css" />
+  <style>
+    html, body { background: #050608; }
+    #bevy { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+    #status { position: fixed; left: 50%; top: 40%; transform: translateX(-50%); max-width: 40rem; padding: 12px 16px;
+      border-radius: 12px; background: rgba(0, 0, 0, 0.85); color: #f5f6f7; font: 13px/1.5 ui-monospace, Menlo, monospace;
+      white-space: pre-wrap; z-index: 20; }
+    #status:empty { display: none; }
+  </style>
+<link rel="modulepreload" href="/astroid-evolution-web/astroid_evolution-8b95cafc94041104.js" crossorigin="anonymous" integrity="sha384-xQW8GyZzve3Jwttoog5j6CUiqChX7P1m22MkF7BIjxmbJZM1i8gh9cKK9iC5sFZ9"><link rel="modulepreload" href="/astroid-evolution-web/snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js" crossorigin="anonymous" integrity="sha384-j7NcrpDFbLLPOa0yBgc2md2vCVtdbqgxYFV02430LDxCtY6gatc3oC7MI8sBFulw"><link rel="preload" href="/astroid-evolution-web/astroid_evolution-5ace8d4591035601_bg.wasm" crossorigin="anonymous" integrity="sha384-dnzenmgL5c/RYipqKDrw525zBErWD9/63bptZuEMjiKFlK0C1Ejih/zKim7mAuvw" as="fetch" type="application/wasm"></head>
+<body>
+  <canvas id="bevy"></canvas>
+  <div id="ui-root"></div>
+  <div id="status">Loading the viewer…</div>
+  <script type="module" src="ui/ui.js"></script>
+  <script src="/astroid-evolution-web/boot-b9256a8f0bde41c3.js" integrity="sha384-R6XK1BhcgYpxOSh6qGrIVnuDCeCMqt3sx98K+Q/TK+jkAR1A1PensxOVOjns51cy" type="module"></script>
+  
+  
+<script type="module">
+import init, * as bindings from '/astroid-evolution-web/astroid_evolution-8b95cafc94041104.js';
+const wasm = await init({ module_or_path: '/astroid-evolution-web/astroid_evolution-5ace8d4591035601_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+</body>
+</html>
